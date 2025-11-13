@@ -85,8 +85,8 @@ Universal Robots Configuration
 --------------------------------------
 
 
-The real robot or the simulator has to be configured to accept 
-connection from RVC and configure the RVC system for real time capabilities
+The real robot or the simulator must be configured to accept 
+connection from RVC and configure the RVC system for real time capabilities.
 
 
 Set up Universal Robots UR5e Robot
@@ -94,7 +94,7 @@ Set up Universal Robots UR5e Robot
 
  
 
-This section discusses, in brief, the steps to set up Universal Robots UR5e robot.
+This section briefly discusses the steps to set up the Universal Robots UR5e robot.
 
 .. note::
     For more details, refer to the 
@@ -106,7 +106,8 @@ Set up Private Local Network
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-One of the key considerations coming from Universal Robots robots is that the network connection from the controlling AI running RVC and the robot must be on a direct Ethernet connection. In this demonstration, a private local network with a dedicated switch was set up with no other traffic on this network, which worked well.
+
+One of the key considerations with Universal Robots is that the network connection between the controlling AI running RVC and the robot must be a direct Ethernet connection.
 
 Install external_control.urcap
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -122,11 +123,11 @@ After installing `external_control.urcap`, the screen, shown in the following fi
 
 .. note::
 
-    Replace the IP in, the figure, with your Intel target private network connected to the robot.
+    Replace the IP in the figure with your Intel target private network IP connected to the robot.
 
 .. note::
 
-    Before starting the demonstration, make sure that the **Speed** slider, shown in the figure, is set around 70%. Even if the speed is set to above 70%, the robot will follow, however higher speed might damage the bolts that connect the base of the robot to the table. Do the same for the Rviz2 speed slider also.
+    Before starting the demonstration, make sure that the **Speed** slider, shown in the figure, is set around 70%. Even if the speed is set above 70%, the robot will operate; however, higher speeds might damage the bolts that connect the base of the robot to the table. Do the same for the Rviz2 speed slider as well.
 
 Install Gripper URCaps
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -136,7 +137,7 @@ The URCaps are available on the `Robotiq <https://robotiq.com/products/2f85-140-
 
 To download the latest Gripper URCaps, click **Download files**. From the left panel, click **Universal Robots**. Then, click **Software** > **Gripper Software**. Click **DOWNLOAD ZIP**.
 
-Install these URCaps on the UR5e robot teach pendant using an USB key.
+Install these URCaps on the UR5e robot teach pendant using a USB drive.
 
 Restart the robot. Select **Program Robot** on the Welcome screen. Go to the **Installation** tab. Select **Gripper** listed under **URCaps**.
 
@@ -149,7 +150,7 @@ Restart the robot. Select **Program Robot** on the Welcome screen. Go to the **I
 Overwrite Model-specific Kinematics Parameters (Calibration)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-There might be slight differences (variance) in the physical attributes of various robots. To address this issue, the robot is calibrated at the factory and the variance in these parameters are saved on the robot controller file system. Extract the kinematics parameters specific to your robot and overwrite the distributed parameters file to avoid the robot being sent elsewhere for accumulating errors on inverse kinematics computation due to this parameter variance.
+There might be slight differences (variance) in the physical attributes of various robots. To address this issue, the robot is calibrated at the factory and the variance in these parameters is saved on the robot controller file system. Extract the kinematics parameters specific to your robot and overwrite the distributed parameters file. This avoids the robot accumulating errors in inverse kinematics computation due to parameter variance.
 
 For information on the Universal Robots robot calibration, refer to 
 `README.md <https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver/blob/foxy/ur_calibration/README.md>`_
@@ -183,7 +184,7 @@ For example, in this demonstration, the result file is in:
 
 `<urdescriptioninstallpath>/ur_description/config/ur5e/default_kinematics.yaml`
 
-If everything is correct, you will see an information message instead of the error message.
+If everything is correct, you will see an informational message instead of the error message.
 
 ::
 
