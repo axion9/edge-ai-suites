@@ -9,9 +9,9 @@ Before running RVC for the first time, ensure proper configuration has occurred:
 
 
 - Camera 
-    - :ref:`Integration<camera_integration>`: These demonstrations support all |Realsense| |D4xx| cameras, though they were designed with the D415. 
+    - :ref:`Integration<camera_integration>`: These demonstrations support all |Realsense| |D4xx| cameras, though were designed with the D415. 
 - Universal Robots 
-    - :ref:`Communication<universal_robot_configuration>`: The robot must be properly configured to interface with the |Intel| platform.
+    - :ref:`Communication<universal_robot_configuration>`: The robot must be properly configured to interface with the |Intel| platform 
     - :ref:`Calibration Procedure<robot_calibration_procedure>`: Extract the robot's calibration parameters from the physical robot to ensure accurate operation.
     - :ref:`Home Pose<robots_home_pose>`: Verify and set the robot's default home pose according to its real-world configuration.
 
@@ -30,9 +30,9 @@ can construct shorter and more readable XML files by using macros that expand to
 to avoid repetition, improve readability, and make robot models configurable (e.g., by passing arguments).
 
 In the case of the |Realsense| |D4xx| cameras, the .xacro file for each device are stored in the realsense2_description package. 
-Each exemplary use case requires you to extend these files and provide the cameras origin within the physical world. Below is an example
-of a .xacro extension for the D455f to be used in the `Dynamic Use Case <../use_cases/dynamic_use_case.html>`_`. Note that the origin is placing
-the camera within the world frame at a specific location while referencing the Intel-provided xacro file found in the **realsense2_description**
+Each examplary use case requires one to extend these files and provide the cameras origin within the physical world. Below is an example
+of an .xacro extension for the D455f to be used in the `Dynamic Use Case <../use_cases/dynamic_use_case.html>`_`. Note that the origin is placing
+the camera within the world frame at a specific location while refernecing the Intel-provided xacro file found in the **realsense2_description**
 package.
 
 .. code-block:: xml
@@ -62,9 +62,9 @@ if not accurate, the robot will not go to the proper location when picking the o
 is in reference system of the camera, and the system has to transform it to robot reference system, 
 and these numbers give the relation between the two systems.
 
-Each demonstration utilizes these files. If you have selected a camera other than the D415, you will need to create a .xacro extension and store it 
-in the correct location. Again, if doing so, please note that the camera location within the physical world must match the original configuration, 
-or you will need to retrain the neural network processing the streams.
+Each demonstration utilizes these files, if you have selected a camera other than the D415, you will need to create an .xacro extension and store it 
+in the correct location. Again, if doing so please note that the camera location wihtin the physical world must match 
+the original configuration or you will need to retrain the neural network processing the streams.
 
 +---------------+--------------------------------------------+---------------------------------------------------------------+------------------------+
 | Use Case      | Package                                    | Location                                                      | File Name              |
@@ -76,8 +76,8 @@ or you will need to retrain the neural network processing the streams.
 
 .. note:: 
 
-    Every component has an option to change the default namespace: ``namespace:=<namespace>`` which by default is "ipc". When specified, the components 
-    will only see other components if they have same namespaces, and the associated .xacro files must be named as seen in the above table (e.g. ``d415camera<namespace>.xacro``)
+    Every component has an option to change the default namespace: ``namespace:=<namspace>`` which by default is "ipc". When specified, the components 
+    will only see other components if they have same namespaces and the associated .xacro files must be named as seen in the above table (e.g. ``d415camera<namespace>.xacro``)
 
 .. _universal_robot_configuration:
 
@@ -104,6 +104,7 @@ This section briefly discusses the steps to set up the Universal Robots UR5e rob
 
 Set up Private Local Network
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 
 One of the key considerations with Universal Robots is that the network connection between the controlling AI running RVC and the robot must be a direct Ethernet connection.
@@ -214,10 +215,10 @@ To use the new URCaps, enabling the communication with the Intel® architecture 
 Robot Home Pose
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We strongly recommend positioning the physical robot as seen below prior to executing any of the provided use cases. 
+We strongly recommend positioning the physical robot, as seen below, prior to executing any of the provided use cases. 
 This ensures that the robot begins from a well-defined and safe reference configuration, allowing the calibration parameters 
 and motion sequences to align precisely with the expectations of the RVC framework. Always verify that the robot is 
-correctly homed before initiating any automated behaviors.
+correctly homed before initiating any automated behavior.
 
 +----------+---------------+
 | Joint    | Degrees       |

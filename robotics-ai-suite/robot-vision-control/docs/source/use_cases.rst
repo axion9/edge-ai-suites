@@ -6,7 +6,7 @@
 Exemplary Use Cases
 ##############################
 
-Two exemplary use cases are provided within the RVC framework; each designed to demonstrate distinct capabilities of perception and motion control.
+Two exemplary use cases are provided within the RVC framework, each designed to demonstrate distinct capabilities of perception and motion control.
 
 - :ref:`dynamic_use_case`: The vision system tracks the positions of four different object classes in motion, enabling the robot to intercept and grasp one while it is still moving.
 

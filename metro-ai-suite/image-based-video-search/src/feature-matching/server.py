@@ -19,14 +19,14 @@ from marshmallow import ValidationError
 from PIL import Image
 from pymilvus import Collection, CollectionSchema, DataType, FieldSchema
 
-from encoder import Base64ImageProcessor
-from milvus_utils import (
+from .encoder import Base64ImageProcessor
+from .milvus_utils import (
     CollectionExists,
     create_collection,
     get_milvus_client,
     get_search_results,
 )
-from schemas import PayloadSchema, TensorSchema
+from .schemas import PayloadSchema, TensorSchema
 
 load_dotenv()
 
@@ -285,9 +285,13 @@ async def search(
 
 @app.get("/static/{filename}")
 async def get_image(filename: str):
-    file_path = f"static/{filename}"
-    if os.path.exists(file_path):
-        return FileResponse(file_path)
+    base_dir = os.path.abspath("static")
+    requested_path = os.path.normpath(os.path.join(base_dir, filename))
+    # Ensure the requested path is within the static directory
+    if not requested_path.startswith(base_dir + os.sep):
+        return JSONResponse(status_code=404, content={"message": "File not found"})
+    if os.path.exists(requested_path):
+        return FileResponse(requested_path)
     else:
         return JSONResponse(status_code=404, content={"message": "File not found"})
 
